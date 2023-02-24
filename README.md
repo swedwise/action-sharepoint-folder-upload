@@ -35,7 +35,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Sharepoint upload file
-      uses: swedwise/action-sharepoint-folder-upload@v1
+      uses: swedwise/action-sharepoint-folder-upload@v1.2
       with:
         site_url: 'https://swedwise-my.sharepoint.com/personal/henrik_blidh_swedwise_se'
         sharepoint_user: ${{ secrets.USER }}
