@@ -21,8 +21,6 @@ inputs:
   folder:
     description: 'Path of the folder to upload'
     required: true
-
-
 runs:
   using: 'docker'
   image: 'Dockerfile'
