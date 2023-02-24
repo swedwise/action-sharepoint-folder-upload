@@ -2,6 +2,7 @@
 
 This action will upload the contents of a specified folder to a Sharepoint site.
 
+
 ## Inputs
 
 | Input name            | Required  | Description                                                                               | Example                                                                |
@@ -11,6 +12,7 @@ This action will upload the contents of a specified folder to a Sharepoint site.
 | `sharepoint_password` | **Yes**   | The user's password </br> ***Use GitHub Actions Secrets to store sensible informations*** | `MyPassword123!`                                                       |
 | `destination_folder`  | **Yes**   | The path relative to site where to upload a file                                          | `Documents/Upload`                   |
 | `folder`              | **Yes**   | The path of the folder you want to upload                                                 | `${{ github.workspace }}/`                                     |
+
 
 
 ## Example usage 
