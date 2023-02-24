@@ -1,4 +1,4 @@
-# action-sharepoint-upload
+# action-sharepoint-folder-upload
 
 This action will upload the contents of a specified folder to a Sharepoint site.
 
