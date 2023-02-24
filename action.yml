@@ -1,0 +1,35 @@
+# action.yml
+name: 'Upload folder to Sharepoint'
+description: 'Upload a folder to a Sharepoint library, retaining the subfolder structure'
+author: 'Henrik Blidh'
+branding:
+  icon: 'upload-cloud'  
+  color: 'orange'
+inputs:
+  site_url: 
+    description: 'The Sharepoint site url'
+    required: true
+  sharepoint_user: 
+    description: 'User name to use for authentication'
+    required: true
+  sharepoint_password: 
+    description: 'Password to use for authentication'
+    required: true
+  destination_folder: 
+    description: 'The path where to upload on remote server'
+    required: true
+  folder:
+    description: 'Path of the folder to upload'
+    required: true
+
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    SITE_URL : ${{ inputs.site_url }}
+    USER : ${{ inputs.sharepoint_user }}
+    PASS: ${{ inputs.sharepoint_password }}
+    DESTINATION : ${{ inputs.destination_folder }}
+    FOLDER : ${{ inputs.folder }}
+    
