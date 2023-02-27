@@ -13,6 +13,10 @@ DESTINATION = os.getenv("DESTINATION")
 FOLDER = os.getenv("FOLDER")
 
 
+def gh_action_log(message, level="notice"):
+    print(f"::{level} file={Path(__file__).name}::{message}", flush=True)
+
+
 def upload_folder(local_folder: Path, destination: str, site: Site):
     """Upload the contents of a folder to Sharepoint."""
     sp_folder = site.Folder(destination)
@@ -26,7 +30,7 @@ def upload_folder(local_folder: Path, destination: str, site: Site):
             # Get path of new folder and create it
             new_destination = f"{destination}/{path.stem}"
             site.Folder(new_destination)
-            print(f"Created folder '{new_destination}'")
+            gh_action_log(f"Created folder '{new_destination}'")
             # Now make recursive call to self with new folder
             upload_folder(path, new_destination, site)
 
@@ -35,7 +39,7 @@ def upload_file(file: Path, folder: _Folder):
     """Uploads a single file to a specified Sharepoint folder"""
     with file.open(mode="rb") as f:
         folder.upload_file(f.read(), file.name)
-    print(f"Uploaded file {folder.folder_name}/{file.name}")
+        gh_action_log(f"Uploaded file {folder.folder_name}/{file.name}")
 
 
 def main():
