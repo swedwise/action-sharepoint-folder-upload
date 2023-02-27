@@ -21,6 +21,8 @@ def upload_folder(local_folder: Path, destination: str, site: Site):
             # Handle single file.
             upload_file(path, sp_folder)
         elif path.is_dir():
+            if path.name in (".git", ".idea"):
+                continue
             # Get path of new folder and create it
             new_destination = f"{destination}/{path.stem}"
             site.Folder(new_destination)
