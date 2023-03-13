@@ -28,7 +28,7 @@ def upload_folder(local_folder: Path, destination: str, site: Site):
             if path.name in (".git", ".idea"):
                 continue
             # Get path of new folder and create it
-            new_destination = f"{destination}/{path.stem}"
+            new_destination = f"{destination}/{path.name}"
             site.Folder(new_destination)
             gh_action_log(f"Created folder '{new_destination}'")
             # Now make recursive call to self with new folder
